@@ -19,10 +19,15 @@ class Runner {
           console.log(`OK -  ${desc}`);
         } catch (e) {
           console.log(`X - ${desc}`);
-          console.log(e);
+          console.log("\t", e.mesage);
         }
       };
-      require(file.name);
+      try {
+        require(file.name);
+      } catch (e) {
+        console.log("X - Error Loading File", file.name);
+        console.log(e);
+      }
     }
   }
 
