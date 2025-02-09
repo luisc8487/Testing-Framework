@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/luisc8487/Testing-Framework#readme",
   "description": "",
-  "bin":{
+  "bin": {
     "tme": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
   }
 }
