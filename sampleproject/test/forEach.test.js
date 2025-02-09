@@ -1,13 +1,23 @@
 const assert = require("assert");
 const {forEach} = require("../index");
 
-it("Should sun an array", () => {
-  const numbers = [1, 2, 3];
+let numbers;
+beforeEach(() => {
+  numbers = [1, 2, 3];
+});
 
+it("Should sun an array", () => {
   let total = 0;
   forEach(numbers, (value) => {
     total += value;
   });
 
   assert.strictEqual(total, 6);
+  numbers.push(3);
+  numbers.push(3);
+  numbers.push(3);
+});
+
+it("beforeEach is ran each time", () => {
+  assert.strictEqual(numbers.length, 3);
 });
