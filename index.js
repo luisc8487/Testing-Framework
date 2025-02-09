@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-const Runner = require('./runner');
+const Runner = require("./runner");
 const runner = new Runner();
 
-const test = async () =>{
-    await runner.collectFiles(process.cwd());
-    console.log(runner.testFiles);
+const test = async () => {
+  await runner.collectFiles(process.cwd());
+  console.log(runner.testFiles);
+  console.log(runner.runTests());
 };
 
 test();
