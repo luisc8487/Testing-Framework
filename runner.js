@@ -9,7 +9,7 @@ class Runner {
 
   async runTests() {
     for (let file of this.testFiles) {
-      console.log(chalk.gray(`------- ${file.name}`));
+      console.log(chalk.gray(`------- ${file.shortName}`));
       const beforeEaches = [];
       global.beforeEach = (fn) => {
         beforeEaches.push(fn);
@@ -40,7 +40,7 @@ class Runner {
       const stats = await fs.promises.lstat(filePath);
 
       if (stats.isFile() && file.includes(".test.js")) {
-        this.testFiles.push({name: filePath});
+        this.testFiles.push({name: filePath, shortName: file});
       } else if (stats.isDirectory()) {
         const childFiles = await fs.promises.readdir(filePath);
 
